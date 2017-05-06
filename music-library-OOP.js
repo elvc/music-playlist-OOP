@@ -9,13 +9,14 @@ function Playlist(name) {
   this.name = name;
 
   // alternative way to define "addTrack" without "prototype"
+  // =====================================
   // this.addTrack = function (track) {
   //   this.tracks.push(track);
   // };
 
   this.overallRating = function () {
     const sumRating = this.tracks.reduce(function(acc, val) {
-      return acc + val;
+      return acc + val.rating;
     }, 0);
     return sumRating / this.tracks.length;
   };
@@ -57,3 +58,7 @@ console.log('================');
 console.log('track2:', track2);
 console.log('================');
 console.log('library1:', library1);
+console.log('================');
+console.log('Playlist 1 Overall Rating:', playlist1.overallRating());
+console.log('================');
+console.log('Playlist 1 Total Duration:', playlist1.totalDuration());
